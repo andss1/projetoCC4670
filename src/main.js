@@ -1,21 +1,13 @@
 import React, { Component } from 'react'
-import { Text, View , TouchableOpacity, Button, Image, StyleSheet} from 'react-native'
-
-
-class MainButton extends Component{
-    render(){
-        return(
-            <TouchableOpacity style={styles.button}>
-                <Text style={{color: '#ffffff'}}>{this.props.name}</Text>
-            </TouchableOpacity>
-        );
-    }
-}
+import { Text, View , TouchableOpacity, Image, StyleSheet, Button} from 'react-native'
+import {createAppContainer} from 'react-navigation'
+import {createStackNavigator} from 'react-navigation-stack'
+import MainButton from './MainButton'
 
 class main extends Component {
     render() {
         return (
-            <View style={{flex: 1, backgroundColor: "#ffe0b3"}}>
+            <View style={{display: "flex", flex: 1, backgroundColor: "#ffe0b3"}}>
                 <View style={styles.imageView}>
                     <Image source={require('../images/av_logo.png')} style={styles.iconImage}/>
                 </View>
@@ -34,26 +26,30 @@ class main extends Component {
     }
 }
 
+const AppNavigator = createStackNavigator(
+    {
+        Main: main,
+    },
+    {
+        initialRouteName: 'Main',
+    }
+
+);
+
 const styles = StyleSheet.create({
     imageView:{
-        flex: 3,
+        display: "flex",
+        flexGrow: 2,
         alignItems: 'center',
         justifyContent: 'center',
     },
 
     iconImage:{
-        height: 200,
-        width: 200,
-    },
-
-    button: {
-        backgroundColor: '#660066',
-         alignItems:'center',
-         padding: 8
-
+        width: 210,
+        height: 250,
     },
     buttonView: {   
-        flex: 1,
+        flex: 3,
         margin: 75,
         marginBottom: 100,
     },

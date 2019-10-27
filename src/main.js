@@ -21,6 +21,7 @@ class main extends Component {
                 <View>
                     <Text></Text>
                 </View>
+                <></>
             </View>
         )
     }

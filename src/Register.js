@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {ScrollView, View, Text, TextInput, StyleSheet, Image, Dimensions, Button} from 'react-native'
+import { Icon } from 'react-native-elements'
 import MainButton from './MainButton'
 
 class Register extends Component {
@@ -13,16 +14,48 @@ class Register extends Component {
                 </View>
 
                 <View style={styles.main}>
-                    <TextInput style={styles.txtinput} placeholder = "Nome"/> 
-                    <TextInput style={styles.txtinput} placeholder = "Email"/> 
-                    <TextInput style={styles.txtinput} placeholder = "Telefone"/> 
-                    <TextInput style={styles.txtinput} placeholder = "Sexo"/>
+                    <View style={styles.inputs}>
+                        <Icon
+                            name="account"
+                            color="black"
+                            type = "material-community"
+                            size={25}
+                        />
+                        <TextInput style={styles.txtinput} placeholder = "Nome"/> 
+                    </View>
+                    <View style={styles.inputs}>
+                        <Icon
+                            name="mail"
+                            color="black"
+                            size={25}
+                        />
+                        <TextInput style={styles.txtinput} placeholder = "Email"/> 
+                    </View>
+                    <View style={styles.inputs}>
+                        <Icon
+                            name="phone"
+                            color="black"
+                            size={25}
+                        />
+                        <TextInput style={styles.txtinput} placeholder = "Telefone"/> 
+                    </View>
+                    <View style={styles.inputs}>
+                        <Icon
+                            name="intersex"
+                            type = "font-awesome"
+                            color="black"
+                            size={25}
+                        />
+                        <TextInput style={styles.txtinput} placeholder = "Sexo"/> 
+                    </View>
+                
                     <View style={styles.buttonView}> 
                         <MainButton name='CADASTRAR'/>
                     </View>
-                    
                 </View>
-                <MainButton name='CADASTRAR'/>
+                <View style={{marginTop: 10, marginRight: 50, marginLeft: 50}}>
+                    <MainButton name='Voltar'/>
+                </View>
             </ScrollView>
         )
     }
@@ -57,9 +90,17 @@ const styles = StyleSheet.create({
         margin: 10,
     },
 
+    inputs:{
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop: 20,
+        //borderWidth: 1,
+
+    },
 
     txtinput:{
-        marginTop: 5,
+        width: 250,
+        marginLeft: 10,
         marginBottom: 5,
         borderBottomWidth: 0.8,
         borderBottomColor: 'black',

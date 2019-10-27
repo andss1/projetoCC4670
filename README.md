@@ -1,3 +1,5 @@
 # Projeto-CC4670
 
-Favor informar os nomes e RA dos componentes do grupo [Guilherme]
+Alunos:
+  Anderson Simão da Silva - R.A.: 22.118.031-8
+  Vinicius de Andrade Silva - R.A.: 22.117.050-9

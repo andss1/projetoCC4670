@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { View , StyleSheet, Text, ScrollView} from 'react-native'
+import { View , StyleSheet, Text, TouchableOpacity} from 'react-native'
 
 class UserBalloon extends Component {
     render() {
         return (
-            <View style={styles.ballon}>
+            <TouchableOpacity style={styles.ballon}>
                 <View style={styles.iconUser}>
                 </View>
                 <View style={styles.textUser}>
@@ -13,7 +13,7 @@ class UserBalloon extends Component {
                     <Text style={{fontSize: 12, marginLeft: 5}}>Telefone: {this.props.tel}</Text>
                     <Text style={{fontSize: 12, marginLeft: 5}}>Sexo: {this.props.sexo}</Text>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 }
@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         height: 80,
         marginBottom: 8,
-        marginLeft: 10,
-        marginRight: 10,
+        marginLeft: 5,
+        marginRight: 5,
     },
 
     iconUser:{

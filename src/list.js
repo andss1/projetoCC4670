@@ -52,6 +52,15 @@ class list extends Component {
                     <UserBalloon 
                     name='Anderson' tel='12312312' sexo='M' email='anderson@reactnative'/>
                     <UserBalloon />
+                    <UserBalloon />
+                    <UserBalloon />
+                    <UserBalloon />
+                    <UserBalloon />
+                    <UserBalloon />
+                    <UserBalloon />
+                    <UserBalloon />
+                    <UserBalloon />
+                    <UserBalloon />
                 </ScrollView>
             </View>
         )

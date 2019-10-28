@@ -3,7 +3,7 @@
  */
 
 import {AppRegistry} from 'react-native';
-import List from './src/list';
+import Schedules from './src/Schedules';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => List);
+AppRegistry.registerComponent(appName, () => Schedules);

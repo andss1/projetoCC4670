@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View , StyleSheet, Text, ScrollView} from 'react-native'
-import {Icon, Button} from 'native-base'
+import { Icon } from 'react-native-elements'
+import {Button} from 'native-base'
 import {createStackNavigator} from 'react-navigation-stack'
 import UserBalloon from './UserBalloon'
 
@@ -16,9 +17,17 @@ class Schedules extends Component {
                     <Text style={styles.title}> AGENDA </Text>
                 </View>
 
-                <View style={styles.main}>
+                <View elevation={15} style={styles.main}>
                     <View style={styles.schedule}>
+                    <View style={styles.dateCon}>
+                        <Icon
+                            name="calendar"
+                            color="black"
+                            type = "font-awesome"
+                            size={16}
+                        />
                         <Text> dd/mm/aa </Text>
+                        </View>
                         <View style={styles.info}>
                             <Text> Nome: </Text>
                             <Text> Sexo: </Text>
@@ -27,7 +36,15 @@ class Schedules extends Component {
                     </View>
 
                     <View style={styles.schedule}>
+                    <View style={styles.dateCon}>
+                        <Icon
+                            name="calendar"
+                            color="black"
+                            type = "font-awesome"
+                            size={16}
+                        />
                         <Text> dd/mm/aa </Text>
+                        </View>
                         <View style={styles.info}>
                             <Text> Nome: </Text>
                             <Text> Sexo: </Text>
@@ -36,7 +53,15 @@ class Schedules extends Component {
                     </View>
 
                     <View style={styles.schedule}>
+                    <View style={styles.dateCon}>
+                        <Icon
+                            name="calendar"
+                            color="black"
+                            type = "font-awesome"
+                            size={16}
+                        />
                         <Text> dd/mm/aa </Text>
+                        </View>
                         <View style={styles.info}>
                             <Text> Nome: </Text>
                             <Text> Sexo: </Text>
@@ -79,9 +104,23 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         marginTop: 25,
         padding: 10,
-        borderWidth: 1,
+        borderWidth: 0,
         borderRadius: 10,
         margin: 10,
+        backgroundColor: '#f8f2fd',
+        shadowColor: "black",
+        shadowOpacity: 1,
+        shadowRadius: 22,
+        shadowOffset: {
+            height: 5,
+            width: 10
+        }
+    },
+
+    dateCon:{
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop: 10,
     },
 
     schedule:{

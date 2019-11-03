@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {ScrollView, View, Text, TextInput, StyleSheet, Image, Dimensions, Button} from 'react-native'
-import MainButton from './MainButton'
 
 
 class User extends Component {
@@ -9,21 +8,21 @@ class User extends Component {
             <ScrollView style={styles.father}>
                 <View style={styles.header}>
 
-                    <Image source={require('./images/avatar.png')} style={styles.avatarImage} />
+                    <Image source={require('../images/avatar.png')} style={styles.avatarImage} />
 
                     <View style={styles.buttonView}>
                         <View style={styles.fixToText}>
-                            <MainButton name='Editar'/>
+                            <Button title='Editar'/>
                         </View>
                         <View style={styles.fixToText}>
-                            <MainButton name='Excluir'/>
+                            <Button title='Excluir'/>
                         </View>
                     </View>
                 </View>
 
-                <View style={styles.main}>
+                <View elevation={2} style={styles.main}>
                     <Text style={{fontSize: 30, alignSelf: 'center'}}> 'Nome Do Usuário' </Text>
-
+                    <View style={{marginTop: 9, borderBottomWidth: 0.2}}/>
                     <Text style={styles.info} > Email </Text>
                     <Text style={styles.informacao}> </Text>
 
@@ -37,7 +36,7 @@ class User extends Component {
                     <Text style={styles.informacao}> </Text>
 
                     <View style={styles.fixToText}>
-                        <MainButton name='Agendamentos'/>
+                        <Button title='Agendamentos'/>
                     </View>
                 </View>
                 
@@ -50,7 +49,7 @@ const styles = StyleSheet.create({
     father:{
         display: 'flex',
         flex: 1,
-        backgroundColor: '#ffe0b3',
+        backgroundColor: '#f1f2f6',
     },
 
     info:{
@@ -74,11 +73,14 @@ const styles = StyleSheet.create({
     },
 
     main:{
+        backgroundColor: 'white',
+        paddingTop: 25,
+        paddingBottom: 25,
         display: 'flex',        
         flexDirection: 'column',
         marginTop: 25,
         padding: 10,
-        borderWidth: 1,
+        //borderWidth: 1,
         borderRadius: 10,
         margin: 10,
     },
@@ -108,7 +110,9 @@ const styles = StyleSheet.create({
     },
 
     buttonView: {
-        width: 70,
+        display: 'flex',
+        flexDirection: 'column',
+        //borderWidth: 1,
         marginTop: 5,
         marginLeft: 130,
         justifyContent: 'space-around',

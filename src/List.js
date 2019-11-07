@@ -4,7 +4,7 @@ import {createStackNavigator} from 'react-navigation-stack'
 import {Radio, Button, Left, Icon} from 'native-base'
 import UserBalloon from './UserBalloon'
 
-class list extends Component {
+class List extends Component {
     state = {
         mas: false,
         fem: false,
@@ -67,17 +67,6 @@ class list extends Component {
     }
 }
 
-const AppNavigator = createStackNavigator(
-    {
-        //Main: main,
-        List : list,
-    },
-    {
-        initialRouteName: 'List',
-    }
-
-);
-
 const styles = StyleSheet.create({
     buttonView: {   
         flex: 3,
@@ -116,4 +105,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default list;
+export default List;

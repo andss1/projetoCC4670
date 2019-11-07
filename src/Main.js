@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import { Text, View , TouchableOpacity, Image, StyleSheet, Button} from 'react-native'
 import {createAppContainer} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
 import MainButton from './MainButton'
+import Register from './Register'
+import List from './List'
 
-class main extends Component {
+class Main extends Component {
     render() {
         return (
             <View style={{display: "flex", flex: 1, backgroundColor: "#ffe0b3"}}>
@@ -12,7 +14,9 @@ class main extends Component {
                     <Image source={require('../images/av_logo.png')} style={styles.iconImage}/>
                 </View>
                 <View style={styles.buttonView}>
-                    <MainButton name='CADASTRAR'/>
+                    <TouchableOpacity style={{display:"flex"}} onPress={alert('aaaaa')}>
+                        <MainButton name='CADASTRAR'/>
+                    </TouchableOpacity>
                     <View style={styles.separator}></View>
                     <MainButton name='BUSCAR'/>
                     <View style={styles.separator}></View>
@@ -27,15 +31,6 @@ class main extends Component {
     }
 }
 
-const AppNavigator = createStackNavigator(
-    {
-        Main: main,
-    },
-    {
-        initialRouteName: 'Main',
-    }
-
-);
 
 const styles = StyleSheet.create({
     imageView:{
@@ -59,4 +54,17 @@ const styles = StyleSheet.create({
     },
 });
 
-export default main;
+
+const AppNavigator = createStackNavigator(
+    {
+        HomeScreen: Main,
+        Cadastra: Register,
+        Lista: List,
+    },
+    {
+        initialRouteName: 'HomeScreen',
+    }
+
+);
+
+export default Main;

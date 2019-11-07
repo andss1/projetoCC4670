@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
-import {ScrollView, View, Text, TextInput, StyleSheet, Image, Dimensions, Button} from 'react-native'
-import { Icon } from 'react-native-elements'
-import MainButton from './MainButton'
+import {ScrollView, View, Text, TextInput, StyleSheet, Button, Alert} from 'react-native'
+import { Card, ListItem, Icon} from 'react-native-elements'
 
 class Register extends Component {
     render() {
         return (
             <ScrollView style={styles.father}>
-                <View style={styles.header}>
-                    <Text style={styles.title}> AV </Text>
-                    <Text style={styles.title}> STUDIO</Text>
-                
-                </View>
+                {/*
+                <View elevation={10} style={styles.header}>
+                    <Text style={styles.title}> AGENDAR </Text>
+                </View>*/}
 
-                <View style={styles.main}>
+                <Card
+                    title='Novo Cliente'
+                    containerStyle={styles.card}
+                >
+                    <View style={styles.main}>
                     <View style={styles.inputs}>
                         <Icon
                             name="account"
@@ -48,14 +50,18 @@ class Register extends Component {
                         />
                         <TextInput style={styles.txtinput} placeholder = "Sexo"/> 
                     </View>
-                
-                    <View style={styles.buttonView}> 
-                        <MainButton name='CADASTRAR'/>
-                    </View>
+                    <View style={{marginTop: 20}}/>
+                    <Button
+                        icon={<Icon name='code' color='white' />}
+                        buttonStyle={{borderRadius: 0, marginTop: 0, marginRight: 0, marginBottom: 0}}
+                        title='Cadastrar'
+                        //onPress = {alert("Cadastrado")}
+                    />
                 </View>
-                <View style={{marginTop: 10, marginRight: 50, marginLeft: 50}}>
-                    <MainButton name='Voltar'/>
-                </View>
+
+
+
+                </Card>
             </ScrollView>
         )
     }
@@ -65,29 +71,42 @@ const styles = StyleSheet.create({
     father:{
         display: 'flex',
         flex: 1,
-        backgroundColor: '#ffe0b3',
+        backgroundColor: '#f1f2f6',
     },
 
     header: {
+        alignSelf: 'center',
         display: 'flex',
         flexDirection: 'column',
-        marginTop: 10,
+        margin: -5,
+        padding: 20,
+        borderBottomWidth: 0,
+        borderBottomStartRadius: 30,
+        marginBottom: 20,
+        borderBottomEndRadius: 30,
+        shadowColor: "black",
+        shadowOpacity: 1,
+        shadowRadius: 22,
+        shadowOffset: {
+            height: 5,
+            width: 10
+        }
     },
     title:{
+        marginTop: -40,
         fontFamily: 'Montserrat-Regular',
-        fontSize: 40,
+        fontSize: 36,
         alignSelf: 'center',
-        letterSpacing: 20
+        letterSpacing: 20,
     },
 
     main:{
         display: 'flex',        
         flexDirection: 'column',
-        marginTop: 25,
-        padding: 10,
-        borderWidth: 1,
-        borderRadius: 10,
-        margin: 10,
+        //padding: 10,
+        //borderWidth: 1,
+        //borderRadius: 10,
+        //margin: 10,
     },
 
     inputs:{

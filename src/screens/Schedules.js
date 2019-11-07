@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     father:{
         display: 'flex',
         flex: 1,
-        backgroundColor: '#f1f2f6',
+        backgroundColor: '#ffe0a3',
     },
 
     header: {

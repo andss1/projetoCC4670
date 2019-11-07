@@ -25,7 +25,7 @@ class List extends Component {
 
     render() {
         return (
-            <ScrollView style={{display: "flex", flex: 1, backgroundColor: "#f1f2f6"}}>
+            <ScrollView style={{display: "flex", flex: 1, backgroundColor: "#ffe0a3"}}>
                 {/*}
                 <View elevation={10} style={styles.header}>
                     <Text style={styles.title}> CLIENTES </Text>
@@ -55,7 +55,7 @@ class List extends Component {
                     title='Anderson Simao'
                     containerStyle={styles.card}
                 >
-                    <Icon name="info" type="font-awesome" size={20}/>
+                    
                     <Text style={{marginBottom: 10}}>
                         <Text style={{fontWeight: 'bold'}}>Tel: </Text> 98888-8888                       
                     </Text>
@@ -67,6 +67,7 @@ class List extends Component {
                         icon={<Icon name='code' color='white' />}
                         buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                         title='Mais Detalhes'
+                        color='#8e44ad'
                         onPress={() => this.props.navigation.navigate('Usuario')}
                     />
                 </Card>
@@ -75,7 +76,6 @@ class List extends Component {
                     title='Anderson Simao'
                     containerStyle={styles.card}
                 >
-                    <Icon name="info" type="font-awesome" size={20}/>
                     <Text style={{marginBottom: 10}}>
                         <Text style={{fontWeight: 'bold'}}>Tel: </Text> 98888-8888                       
                     </Text>
@@ -87,6 +87,7 @@ class List extends Component {
                         icon={<Icon name='code' color='white' />}
                         buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                         title='Mais Detalhes'
+                        color='#8e44ad'
                         onPress={() => this.props.navigation.navigate('Usuario')}
                     />
                 </Card>
@@ -166,7 +167,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         marginBottom: 5,
-        backgroundColor: "#dfe4ea"
+        backgroundColor: "#ffe0a3"
     },
 });
 

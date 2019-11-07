@@ -61,8 +61,7 @@ const StackNav = createStackNavigator(
         TabNavigator : TabNavigator,
         Registra: Register,
         Usuario: User,
-    },
-    
+    },    
 );
 
 const AppContainer = createAppContainer(StackNav);

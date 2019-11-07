@@ -12,10 +12,12 @@ class User extends Component {
 
                     <View style={styles.buttonView}>
                         <View style={styles.fixToText}>
-                            <Button title='Editar'/>
+                            <Button title='Editar'
+                            color='#8e44ad'/>
                         </View>
                         <View style={styles.fixToText}>
-                            <Button title='Excluir'/>
+                            <Button title='Excluir'
+                            color='#8e44ad'/>
                         </View>
                     </View>
                 </View>
@@ -36,7 +38,8 @@ class User extends Component {
                     <Text style={styles.informacao}> </Text>
 
                     <View style={styles.fixToText}>
-                        <Button title='Agendamentos'/>
+                        <Button title='Agendamentos'
+                        color='#8e44ad'/>
                     </View>
                 </View>
                 
@@ -49,7 +52,7 @@ const styles = StyleSheet.create({
     father:{
         display: 'flex',
         flex: 1,
-        backgroundColor: '#f1f2f6',
+        backgroundColor: '#ffe0a3',
     },
 
     info:{

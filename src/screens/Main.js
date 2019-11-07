@@ -4,10 +4,10 @@ import { Card , Icon } from 'react-native-elements'
 import {createAppContainer} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
 
-class Main extends Component {
+class Main extends Component {   
     render() {
         return (
-            <View style={{display: "flex", flex: 1, backgroundColor: "#f1f2f6"}}>
+            <View style={{display: "flex", flex: 1, backgroundColor: "#f7f6f6"}}>
 
                 <View style={styles.imageView}>
                     <Image source={require('../images/av_logo.png')} style={styles.iconImage}/>
@@ -19,6 +19,7 @@ class Main extends Component {
                         <Button
                             title="Cadastro"
                             type="outline"
+                            color="#8e44ad"
                             onPress={() => this.props.navigation.navigate('Registra')}
                         />
                     </View>
@@ -28,6 +29,7 @@ class Main extends Component {
                         <Button
                             title="Buscar"
                             type="outline"
+                            color="#8e44ad"
                             onPress={() => this.props.navigation.navigate('Cadastra')}
                         />
                     </View>

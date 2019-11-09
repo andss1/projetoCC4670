@@ -1,8 +1,36 @@
 import React, { Component } from 'react'
 import {ScrollView, View, Text, TextInput, StyleSheet, Button, Alert} from 'react-native'
 import { Card, ListItem, Icon} from 'react-native-elements'
+import AsyncStorage from '@react-native-community/async-storage'
 
 class Register extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            testInput: '',
+            getTeste: '',
+        };
+    };
+
+    //função que captura e salva os dados
+    saveValueFunc = () => {
+        if(this.state.testInput){
+            AsyncStorage.setItem('key_deafult', this.state.testInput);
+            this.setState({testInput: ''});
+            alert('Usuário cadastrado!');
+        } else {
+            alert('Favor preencher todos os campos!');
+        }
+    };
+
+    //função resposável pela leitura dos dados
+    getValueFunc = () => {
+        AsyncStorage.getItem('key_default').then(
+            value => this.setState({getTeste: value})
+        );
+    };
+
     render() {
         return (
             <ScrollView style={styles.father}>

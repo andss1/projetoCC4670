@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View , StyleSheet, Text, ScrollView, Button} from 'react-native'
 import { Card, ListItem, Icon, Header} from 'react-native-elements'
-import UserBalloon from '../UserBalloon'
 
 class Schedules extends Component {
     render() {

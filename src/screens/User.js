@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import {ScrollView, View, Text, TextInput, StyleSheet, Image, Dimensions, Button} from 'react-native'
 
 
+
 class User extends Component {
+
+
     render() {
         return (
             <ScrollView style={styles.father}>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {ScrollView, View, Text, TextInput, StyleSheet, Button, Alert} from 'react-native'
 import { Card, ListItem, Icon} from 'react-native-elements'
 import AsyncStorage from '@react-native-community/async-storage'
+import api from'../api'
 
 class Register extends Component {
 
@@ -77,6 +78,24 @@ class Register extends Component {
                             size={25}
                         />
                         <TextInput style={styles.txtinput} placeholder = "Sexo"/> 
+                    </View>
+                    <View style={styles.inputs}>
+                        <Icon
+                            name="calendar"
+                            type = "font-awesome"
+                            color="black"
+                            size={25}
+                        />
+                        <TextInput style={styles.txtinput} placeholder = "Data"/> 
+                    </View>
+                    <View style={styles.inputs}>
+                        <Icon
+                            name="user-clock"
+                            type = "font-awesome"
+                            color="black"
+                            size={25}
+                        />
+                        <TextInput style={styles.txtinput} placeholder = "Hora"/> 
                     </View>
                     <View style={{marginTop: 20}}/>
                     <Button

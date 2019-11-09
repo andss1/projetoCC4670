@@ -12,38 +12,29 @@ class User extends Component {
                 <View style={styles.header}>
 
                     <Image source={require('../images/avatar.png')} style={styles.avatarImage} />
-
-                    <View style={styles.buttonView}>
-                        <View style={styles.fixToText}>
-                            <Button title='Editar'
-                            color='#8e44ad'
-                            onPress={() => this.props.navigation.navigate('Edita')}/>
-                        </View>
-                        <View style={styles.fixToText}>
-                            <Button title='Excluir'
-                            color='#8e44ad'
-                             />
-                        </View>
-                    </View>
+                
                 </View>
 
                 <View elevation={2} style={styles.main}>
-                    <Text style={{fontSize: 30, alignSelf: 'center'}}> 'Nome Do Usuário' </Text>
+                    <Text style={{fontSize: 30, alignSelf: 'center'}}> Editar </Text>
                     <View style={{marginTop: 9, borderBottomWidth: 0.2}}/>
-                    <Text style={styles.info} > Email </Text>
-                    <Text style={styles.informacao}> </Text>
 
-                    <Text style={styles.info} > Número</Text>
-                    <Text style={styles.informacao}> </Text>
+                    <Text style={styles.info} > Novo Nome</Text>
+                    <TextInput style={styles.txtinput}/> 
 
-                    <Text style={styles.info} > Sexo </Text>
-                    <Text style={styles.informacao}> </Text>
+                    <Text style={styles.info} > Novo Email </Text>
+                    <TextInput style={styles.txtinput}/> 
 
-                    <Text style={styles.info} > Data de nascimento</Text>
-                    <Text style={styles.informacao}> </Text>
+                    <Text style={styles.info} > Novo Número</Text>
+                    <TextInput style={styles.txtinput}/> 
+
+                    <Text style={styles.info} > Novo Sexo </Text>
+                    <TextInput style={styles.txtinput}/> 
+
+                    
 
                     <View style={styles.fixToText}>
-                        <Button title='Agendamentos'
+                        <Button title='Salvar'
                         color='#8e44ad'/>
                     </View>
                 </View>
@@ -103,6 +94,16 @@ const styles = StyleSheet.create({
 
     },
 
+    txtinput:{
+        width: 250,
+        marginTop: 20,
+        marginLeft: 10,
+        marginBottom: 5,
+        borderBottomWidth: 0.8,
+        borderBottomColor: 'black',
+
+    },
+
     avatarImage: {
       height: 100,
       width: 100,
@@ -113,8 +114,10 @@ const styles = StyleSheet.create({
 
     header: {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
+        alignItems: 'center',
         marginTop: 30,
+        marginLeft: -20,
     },
 
     buttonView: {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View , TouchableOpacity, Image, StyleSheet, Button} from 'react-native'
+import { ScrollView, Text, View , TouchableOpacity, Image, StyleSheet, Button} from 'react-native'
 import { Card , Icon } from 'react-native-elements'
 import {createAppContainer} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
@@ -7,35 +7,39 @@ import {createStackNavigator} from 'react-navigation-stack'
 class Main extends Component {   
     render() {
         return (
-            <View style={{display: "flex", flex: 1, backgroundColor: "#f7f6f6"}}>
+            <ScrollView style={{display: "flex", flex: 1, backgroundColor: "#f7f6f6"}}>
+
+                <View style={{display: 'flex', flexDirection:'column', alignItems:'flex-start'}}>
+                    <Text style={styles.title}> AV</Text>
+                    <Text style={styles.title}>  STUDIO</Text>
+                </View>
 
                 <View style={styles.imageView}>
-                    <Image source={require('../images/av_logo.png')} style={styles.iconImage}/>
+                    <Image source={require('../images/av_logo.png')} /*style={styles.iconImage}*//>
                 </View>
 
+                
+                
                 <View style={styles.options}>
-                    <View style={styles.opt}>
-                        <Icon name='cut' type='font-awesome' size={70}/>
-                        <Button
-                            title="Cadastro"
-                            type="outline"
-                            color="#8e44ad"
-                            onPress={() => this.props.navigation.navigate('Registra')}
-                        />
-                    </View>
-
-                    <View style={styles.opt}>
-                        <Icon name='search' type='font-awesome' size={70}/>
-                        <Button
-                            title="Buscar"
-                            type="outline"
-                            color="#8e44ad"
-                            onPress={() => this.props.navigation.navigate('Cadastra')}
-                        />
-                    </View>
-
+                <TouchableOpacity
+                    style={{
+                        borderWidth:1,
+                        borderColor:'#8e44ad',
+                        alignItems:'center',
+                        justifyContent:'center',
+                        width:100,
+                        height:100,
+                        backgroundColor:'white',
+                        borderRadius:50,
+                        }}
+                        onPress={() => this.props.navigation.navigate('Registra')}
+                    >
+                    <Icon name={"chevron-right"}  size={30} color="black" />
+                    <Text> Cadastrar </Text>
+                </TouchableOpacity>
+                    
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 }
@@ -43,16 +47,29 @@ class Main extends Component {
 const styles = StyleSheet.create({
     imageView:{
         display: "flex",
-        marginTop: 20,
+        marginTop: 10,
         //borderWidth: 1,
         alignItems: 'center',
         justifyContent: 'center',
     },
     options:{
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         marginTop: 40,
+        alignItems: 'center',
         //borderWidth: 1,
+    },
+
+    title:{
+        //marginTop: -40,
+        fontFamily: 'Montserrat-Regular',
+        fontSize: 40,
+        //fontWeight: 'bold',
+        //alignSelf: 'center',
+        letterSpacing: 20,
+        textShadowColor: 'rgba(0, 0, 0, 1)',
+        textShadowOffset: {width: -1, height: 1},
+        textShadowRadius: 10
     },
 
     opt:{
@@ -62,8 +79,8 @@ const styles = StyleSheet.create({
     },
 
     iconImage:{
-        width: 210,
-        height: 250,
+        width: 240,
+        height: 280,
     },
     buttonView: {   
         flex: 3,

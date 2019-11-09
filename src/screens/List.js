@@ -1,31 +1,73 @@
 import React, { Component } from 'react'
-import { View , StyleSheet, Text, ScrollView, Button} from 'react-native'
-import {createStackNavigator} from 'react-navigation-stack'
-import {Radio, Left} from 'native-base'
-import UserBalloon from '../UserBalloon'
-import { Card, ListItem, Icon} from 'react-native-elements'
+import { View , StyleSheet, Text, ScrollView, Button, FlatList} from 'react-native'
+import {Radio} from 'native-base'
+import { Card, Icon} from 'react-native-elements'
+import api from '../api'
+import Axios from 'axios'
+
+function Item({ title }) {
+    return (
+    <View>
+        <Card
+                    title={title.name}
+                    containerStyle={styles.card}
+                >
+                    
+                    <Text style={{marginBottom: 10}}>
+                        <Text style={{fontWeight: 'bold'}}>Tel: </Text> {title.number}                       
+                    </Text>
+                    <Text style={{marginBottom: 10}}>
+                        <Text style={{fontWeight: 'bold'}}>Sexo: </Text>  {title.sex}                     
+                    </Text>
+                    
+                    <Button
+                        icon={<Icon name='code' color='white' />}
+                        buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+                        title='Mais Detalhes'
+                        color='#333295'
+                        onPress={() => this.props.navigation.navigate('Usuario')}
+                    />
+                </Card>
+        
+    </View>
+);
+}
+
 
 class List extends Component {
     state = {
         mas: false,
         fem: false,
-        all: false
+        all: false,
+
+        user: []
     }
 
     masPressed(){
         this.setState({mas:true, fem:false, all: false});
+        this.atualizaLista();
     }
 
     femPressed(){
         this.setState({mas:false, fem:true, all:false});
+        this.atualizaLista();
     }
     allPressed(){
         this.setState({mas:false, fem:false, all:true});
+        this.atualizaLista();
     }
 
-    render() {
+    atualizaLista() {
+        api.get('/').then(res => {
+            console.log(res.data);
+            const user = res.data;
+            this.setState({ user });
+        })
+    }
+
+    render() {     
         return (
-            <ScrollView style={{display: "flex", flex: 1, backgroundColor: "#ffe0a3"}}>
+            <ScrollView style={{display: "flex", flex: 1, backgroundColor: "#1F143D"}}>
                 {/*}
                 <View elevation={10} style={styles.header}>
                     <Text style={styles.title}> CLIENTES </Text>
@@ -33,64 +75,38 @@ class List extends Component {
 
                 <View style={styles.selectView}>
                     <View style={styles.sex}>
-                            <Radio selected={this.state.mas} color="#8e44ad" selectedColor="#8e44ad"
-                            onPress={() => this.masPressed()}/>
-                            <Text style={{marginLeft: 7}}> Masculino </Text>
+                            <Radio selected={this.state.mas}
+                             color="#fbfefd"
+                             selectedColor="#fbfefd"
+                            onPress={() => this.masPressed()}
+                            />
+                            <Text style={{marginLeft: 7, color: "#fbfefd"}}> Masculino </Text>
                     </View>
 
                     <View style={styles.sex}>
-                            <Radio selected={this.state.mas} color="#8e44ad" selectedColor="#8e44ad"
+                            <Radio selected={this.state.fem}
+                             color="#fbfefd"
+                             selectedColor="#fbfefd"
                             onPress={() => this.femPressed()}/>
-                            <Text style={{marginLeft: 7}}> Feminino </Text>
+                            <Text style={{marginLeft: 7, color: "#fbfefd"}}> Feminino </Text>
                     </View>
 
                     <View style={styles.sex}>
-                            <Radio selected={this.state.mas} color="#8e44ad" selectedColor="#8e44ad"
+                            <Radio selected={this.state.all}
+                             color="#fbfefd"
+                             selectedColor="#fbfefd"
                             onPress={() => this.allPressed()}/>
-                            <Text style={{marginLeft: 7}}> Ambos </Text>
+                            <Text style={{marginLeft: 7, color: "#fbfefd"}}> Ambos </Text>
                     </View>   
                 </View>
 
-                <Card
-                    title='Anderson Simao'
-                    containerStyle={styles.card}
-                >
-                    
-                    <Text style={{marginBottom: 10}}>
-                        <Text style={{fontWeight: 'bold'}}>Tel: </Text> 98888-8888                       
-                    </Text>
-                    <Text style={{marginBottom: 10}}>
-                        <Text style={{fontWeight: 'bold'}}>Sexo: </Text>  Feminino                     
-                    </Text>
-                    
-                    <Button
-                        icon={<Icon name='code' color='white' />}
-                        buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                        title='Mais Detalhes'
-                        color='#8e44ad'
-                        onPress={() => this.props.navigation.navigate('Usuario')}
+                <View>
+                    <FlatList
+                        data={this.state.user}
+                        renderItem={({ item }) => <Item title={item} />}
+                        keyExtractor={item => item.id}
                     />
-                </Card>
-
-                <Card
-                    title='Anderson Simao'
-                    containerStyle={styles.card}
-                >
-                    <Text style={{marginBottom: 10}}>
-                        <Text style={{fontWeight: 'bold'}}>Tel: </Text> 98888-8888                       
-                    </Text>
-                    <Text style={{marginBottom: 10}}>
-                        <Text style={{fontWeight: 'bold'}}>Sexo: </Text>  Feminino                     
-                    </Text>
-                    
-                    <Button
-                        icon={<Icon name='code' color='white' />}
-                        buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                        title='Mais Detalhes'
-                        color='#8e44ad'
-                        onPress={() => this.props.navigation.navigate('Usuario')}
-                    />
-                </Card>
+                </View>
 
             </ScrollView>
         )

@@ -1,35 +1,31 @@
 import React, { Component } from 'react'
 import {ScrollView, View, Text, TextInput, StyleSheet, Button, Alert} from 'react-native'
-import { Card, ListItem, Icon} from 'react-native-elements'
-import AsyncStorage from '@react-native-community/async-storage'
+import { Card, Icon} from 'react-native-elements'
+import api from '../api'
 
 class Register extends Component {
-
+    //estados dos usuários
     constructor(props){
         super(props);
-        this.state = {
-            testInput: '',
-            getTeste: '',
-        };
-    };
+        this.state = {name : '', email: '', number: '', sex: ''}
+    }
 
-    //função que captura e salva os dados
-    saveValueFunc = () => {
-        if(this.state.testInput){
-            AsyncStorage.setItem('key_deafult', this.state.testInput);
-            this.setState({testInput: ''});
-            alert('Usuário cadastrado!');
+    saveUser = async () => {
+        if(this.state.name == "" || this.state.email == "" || this.state.number == ""  || this.state.sex == "" ){
+            alert('Favor preencher todos os campos!')
         } else {
-            alert('Favor preencher todos os campos!');
-        }
-    };
+            const user = {
+                name: this.state.name,
+                email: this.state.email,
+                number: this.state.number,
+                sex: this.state.sex,
+            }
 
-    //função resposável pela leitura dos dados
-    getValueFunc = () => {
-        AsyncStorage.getItem('key_default').then(
-            value => this.setState({getTeste: value})
-        );
-    };
+            api.post('/', user).then((data) => {
+                    console.log(data.data)
+                })
+        }
+    }
 
     render() {
         return (
@@ -51,7 +47,10 @@ class Register extends Component {
                             type = "material-community"
                             size={25}
                         />
-                        <TextInput style={styles.txtinput} placeholder = "Nome"/> 
+                        <TextInput style={styles.txtinput} placeholder = "Nome"
+                        onChangeText={(name) => this.setState({name})}
+                        value = {this.state.name}
+                        /> 
                     </View>
                     <View style={styles.inputs}>
                         <Icon
@@ -59,7 +58,10 @@ class Register extends Component {
                             color="black"
                             size={25}
                         />
-                        <TextInput style={styles.txtinput} placeholder = "Email"/> 
+                        <TextInput style={styles.txtinput} placeholder = "Email"
+                        onChangeText={(email) => this.setState({email})}
+                        value = {this.state.email}
+                        /> 
                     </View>
                     <View style={styles.inputs}>
                         <Icon
@@ -67,7 +69,10 @@ class Register extends Component {
                             color="black"
                             size={25}
                         />
-                        <TextInput style={styles.txtinput} placeholder = "Telefone"/> 
+                        <TextInput style={styles.txtinput} placeholder = "Telefone"
+                        onChangeText={(number) => this.setState({number})}
+                        value = {this.state.number}
+                        /> 
                     </View>
                     <View style={styles.inputs}>
                         <Icon
@@ -75,15 +80,18 @@ class Register extends Component {
                             type = "font-awesome"
                             color="black"
                             size={25}
-                        />
-                        <TextInput style={styles.txtinput} placeholder = "Sexo"/> 
+                        />  
+                        <TextInput style={styles.txtinput} placeholder = "Sexo"
+                        onChangeText={(sex) => this.setState({sex})}
+                        value = {this.state.sex}
+                        /> 
                     </View>
                     <View style={{marginTop: 20}}/>
                     <Button
                         icon={<Icon name='code' color='white' />}
                         buttonStyle={{borderRadius: 0, marginTop: 0, marginRight: 0, marginBottom: 0}}
                         title='Cadastrar'
-                        //onPress = {alert("Cadastrado")}
+                        onPress = {this.saveUser}
                     />
                 </View>
 

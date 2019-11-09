@@ -4,7 +4,7 @@ const routerUser = require('./module/rotas')
 const port = 3333
 
 app.use(bodyParser.json())
-app.use('/api/user', routerUser)
+app.use(routerUser)
 
 app.listen(port, () => {
 	console.log(`Api initialize sucess in port ${port}`)

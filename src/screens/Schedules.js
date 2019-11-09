@@ -12,7 +12,7 @@ class Schedules extends Component {
                 <View elevation={10} style={styles.header}>
                     <Text style={styles.title}> AGENDA </Text>
                 </View>*/}
-                <Icon name="cut" type="font-awesome" size={50}/>
+                <Icon name="cut" color="#fbfefd" type="font-awesome" size={50}/>
                 
                 <Card
                     title='dd/mm/aa'
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     father:{
         display: 'flex',
         flex: 1,
-        backgroundColor: '#ffe0a3',
+        backgroundColor: '#1F143D',
     },
 
     header: {

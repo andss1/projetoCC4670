@@ -86,6 +86,24 @@ class Register extends Component {
                         value = {this.state.sex}
                         /> 
                     </View>
+                    <View style={styles.inputs}>
+                        <Icon
+                            name="calendar"
+                            type = "font-awesome"
+                            color="black"
+                            size={25}
+                        />
+                        <TextInput style={styles.txtinput} placeholder = "Data"/> 
+                    </View>
+                    <View style={styles.inputs}>
+                        <Icon
+                            name="user-clock"
+                            type = "font-awesome"
+                            color="black"
+                            size={25}
+                        />
+                        <TextInput style={styles.txtinput} placeholder = "Hora"/> 
+                    </View>
                     <View style={{marginTop: 20}}/>
                     <Button
                         icon={<Icon name='code' color='white' />}
@@ -107,7 +125,7 @@ const styles = StyleSheet.create({
     father:{
         display: 'flex',
         flex: 1,
-        backgroundColor: '#f1f2f6',
+        backgroundColor: '#1F143D',
     },
 
     header: {

@@ -5,6 +5,7 @@ import Register from './screens/Register'
 import List from './screens/List.js'
 import Schedules from './screens/Schedules'
 import User from './screens/User'
+import EditUser from './screens/EditUser'
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Icon } from 'react-native-elements'
@@ -61,6 +62,7 @@ const StackNav = createStackNavigator(
         TabNavigator : TabNavigator,
         Registra: Register,
         Usuario: User,
+        Edita: EditUser,
     },    
 );
 

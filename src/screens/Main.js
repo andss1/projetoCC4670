@@ -7,15 +7,18 @@ import {createStackNavigator} from 'react-navigation-stack'
 class Main extends Component {   
     render() {
         return (
-            <ScrollView style={{display: "flex", flex: 1, backgroundColor: "#f7f6f6"}}>
+            <View style={{display: "flex", flex: 1, backgroundColor: "#f7f6f6"}}>
 
-                <View style={{display: 'flex', flexDirection:'column', alignItems:'flex-start'}}>
-                    <Text style={styles.title}> AV</Text>
-                    <Text style={styles.title}>  STUDIO</Text>
-                </View>
+                <View style={{display: "flex", flex: 4}}>
 
-                <View style={styles.imageView}>
-                    <Image source={require('../images/av_logo.png')} /*style={styles.iconImage}*//>
+                    <View style={{display: 'flex', flexDirection:'column', alignItems:'flex-start'}}>
+                        <Text style={styles.title}> AV</Text>
+                        <Text style={styles.title}>  STUDIO</Text>
+                    </View>
+
+                    <View style={styles.imageView}>
+                        <Image source={require('../images/av_logo.png')} /*style={styles.iconImage}*//>
+                    </View>
                 </View>
 
                 
@@ -39,7 +42,7 @@ class Main extends Component {
                 </TouchableOpacity>
                     
                 </View>
-            </ScrollView>
+            </View>
         )
     }
 }
@@ -61,11 +64,14 @@ const styles = StyleSheet.create({
     },
 
     title:{
+        display: "flex",
+        flex: 2,
         //marginTop: -40,
         fontFamily: 'Montserrat-Regular',
         fontSize: 40,
         //fontWeight: 'bold',
         //alignSelf: 'center',
+        
         letterSpacing: 20,
         textShadowColor: 'rgba(0, 0, 0, 1)',
         textShadowOffset: {width: -1, height: 1},

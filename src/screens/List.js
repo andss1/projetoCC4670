@@ -25,7 +25,6 @@ function Item({ title }) {
                         buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                         title='Mais Detalhes'
                         color='#333295'
-                        onPress={() => this.props.navigation.navigate('Usuario')}
                     />
                 </Card>
         
@@ -33,14 +32,13 @@ function Item({ title }) {
 );
 }
 
-
 class List extends Component {
     state = {
         mas: false,
         fem: false,
         all: false,
 
-        user: []
+        user: [],
     }
 
     masPressed(){
@@ -64,7 +62,6 @@ class List extends Component {
             this.setState({ user });
         })
     }
-
     render() {     
         return (
             <ScrollView style={{display: "flex", flex: 1, backgroundColor: "#1F143D"}}>

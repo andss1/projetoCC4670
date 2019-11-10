@@ -7,7 +7,7 @@ class Register extends Component {
     //estados dos usuários
     constructor(props){
         super(props);
-        this.state = {name : '', email: '', number: '', sex: ''}
+        this.state = {name : '', email: '', number: '', sex: '', dateOfB: ''}
     }
 
     saveUser = async () => {
@@ -19,6 +19,7 @@ class Register extends Component {
                 email: this.state.email,
                 number: this.state.number,
                 sex: this.state.sex,
+                dateOfB: this.state.dateOfB,
             }
 
             api.post('/', user).then((data) => {
@@ -84,6 +85,10 @@ class Register extends Component {
                         <TextInput style={styles.txtinput} placeholder = "Sexo"
                         onChangeText={(sex) => this.setState({sex})}
                         value = {this.state.sex}
+                        /> 
+                        <TextInput style={styles.txtinput} placeholder = "Date de Nascimento"
+                        onChangeText={(dateOfB) => this.setState({dateOfB})}
+                        value = {this.state.dateOfB}
                         /> 
                     </View>
                     <View style={styles.inputs}>

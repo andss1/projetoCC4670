@@ -16,6 +16,10 @@ const usuarioSchema = mongoose.Schema({
     sex: {
         type: String,
         require: true
+    },
+    dateOfB: {
+        type: String,
+        require: true
     }
 })
 

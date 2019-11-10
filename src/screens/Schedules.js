@@ -21,12 +21,6 @@ class Schedules extends Component {
                     <Text style={{marginBottom: 10}}>
                         <Text style={{fontWeight: 'bold', fontSize: 15}}>Nome: </Text>                       
                     </Text>
-                    <Text style={{marginBottom: 10}}>
-                        <Text style={{fontWeight: 'bold', fontSize: 15}}>Sexo: </Text>                       
-                    </Text>
-                    <Text style={{marginBottom: 10}}>
-                        <Text style={{fontWeight: 'bold', fontSize: 15}}>Corte: </Text>                      
-                    </Text>
                 </Card>
                 </ScrollView>         
         )

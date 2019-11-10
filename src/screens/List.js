@@ -8,28 +8,40 @@ import Axios from 'axios'
 function Item({ title }) {
     return (
     <View>
+        
         <Card
                     title={title.name}
                     containerStyle={styles.card}
-                >
-                    
+                >   
                     <Text style={{marginBottom: 10}}>
                         <Text style={{fontWeight: 'bold'}}>Tel: </Text> {title.number}                       
+                    </Text> 
+                    <Text style={{marginBottom: 10}}>
+                        <Text style={{fontWeight: 'bold'}}>Email: </Text> {title.email}                       
                     </Text>
                     <Text style={{marginBottom: 10}}>
-                        <Text style={{fontWeight: 'bold'}}>Sexo: </Text>  {title.sex}                     
+                        <Text style={{fontWeight: 'bold'}}>Sexo: </Text> {title.sex}                       
+                    </Text>
+                    <Text style={{marginBottom: 10}}>
+                        <Text style={{fontWeight: 'bold'}}>Data nasc.: </Text> {title.dateOfB}                       
+                    </Text>
+                    <Text style={{marginBottom: 10}}>
+                        <Text style={{fontWeight: 'bold'}}>Data agend.: </Text> {title.date}                       
+                    </Text>
+                    <Text style={{marginBottom: 10}}>
+                        <Text style={{fontWeight: 'bold'}}>Horario: </Text>  {title.schedule}                     
                     </Text>
                     
-                    <Button
+                    {/*<Button
                         icon={<Icon name='code' color='white' />}
                         buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                         title='Mais Detalhes'
                         color='#333295'
-                    />
+                    />*/}
                 </Card>
-        
+                    
     </View>
-);
+    );
 }
 
 class List extends Component {
@@ -65,12 +77,16 @@ class List extends Component {
     render() {     
         return (
             <ScrollView style={{display: "flex", flex: 1, backgroundColor: "#1F143D"}}>
+                <View style={{display:'flex', alignItems: 'center',marginTop: 10, marginBottom: 10 }}>
+                    <Button title='Atualiza' onPress={this.atualizaLista()}/>
+                </View>
+
                 {/*}
                 <View elevation={10} style={styles.header}>
                     <Text style={styles.title}> CLIENTES </Text>
                 </View>*/}
 
-                <View style={styles.selectView}>
+                {/*<View style={styles.selectView}>
                     <View style={styles.sex}>
                             <Radio selected={this.state.mas}
                              color="#fbfefd"
@@ -95,8 +111,8 @@ class List extends Component {
                             onPress={() => this.allPressed()}/>
                             <Text style={{marginLeft: 7, color: "#fbfefd"}}> Ambos </Text>
                     </View>   
-                </View>
-
+                </View>*/}
+                <Icon name="user" color="#fbfefd" type="font-awesome" size={50}/>
                 <View>
                     <FlatList
                         data={this.state.user}

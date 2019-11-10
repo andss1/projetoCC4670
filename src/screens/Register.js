@@ -20,6 +20,8 @@ class Register extends Component {
                 number: this.state.number,
                 sex: this.state.sex,
                 dateOfB: this.state.dateOfB,
+                date: this.state.date,
+                schedule: this.state.schedule,
             }
 
             api.post('/', user).then((data) => {
@@ -86,10 +88,6 @@ class Register extends Component {
                         onChangeText={(sex) => this.setState({sex})}
                         value = {this.state.sex}
                         /> 
-                        <TextInput style={styles.txtinput} placeholder = "Date de Nascimento"
-                        onChangeText={(dateOfB) => this.setState({dateOfB})}
-                        value = {this.state.dateOfB}
-                        /> 
                     </View>
                     <View style={styles.inputs}>
                         <Icon
@@ -98,7 +96,20 @@ class Register extends Component {
                             color="black"
                             size={25}
                         />
-                        <TextInput style={styles.txtinput} placeholder = "Data"/> 
+                        <TextInput style={styles.txtinput} placeholder = "Data de nascimento"
+                        onChangeText={(dateOfB) => this.setState({dateOfB})}
+                        value = {this.state.dateOfB}/> 
+                    </View>
+                    <View style={styles.inputs}>
+                        <Icon
+                            name="calendar"
+                            type = "font-awesome"
+                            color="black"
+                            size={25}
+                        />
+                        <TextInput style={styles.txtinput} placeholder = "Data de agendamento"
+                        onChangeText={(date) => this.setState({date})}
+                        value = {this.state.date}/> 
                     </View>
                     <View style={styles.inputs}>
                         <Icon
@@ -107,7 +118,9 @@ class Register extends Component {
                             color="black"
                             size={25}
                         />
-                        <TextInput style={styles.txtinput} placeholder = "Hora"/> 
+                        <TextInput style={styles.txtinput} placeholder = "Hora"
+                        onChangeText={(schedule) => this.setState({schedule})}
+                        value = {this.state.schedule}/> 
                     </View>
                     <View style={{marginTop: 20}}/>
                     <Button

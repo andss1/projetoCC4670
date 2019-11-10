@@ -1,12 +1,48 @@
 import React, { Component } from 'react'
-import { View , StyleSheet, Text, ScrollView, Button} from 'react-native'
+import { View , StyleSheet, Text, ScrollView, Button, FlatList} from 'react-native'
 import { Card, ListItem, Icon, Header} from 'react-native-elements'
+import api from '../api'
+
+function Item({ title }) {
+    //if(title.date != null){
+        return (
+            <View>
+                <Card title= {title.date} containerStyle={styles.card}>
+                    <Text style={{marginBottom: 10}}>
+                        <Text style={{fontWeight: 'bold', fontSize: 15}}>Nome: </Text> {title.name}
+                    </Text>
+        
+                    <Text style={{marginBottom: 10}}>
+                        <Text style={{fontWeight: 'bold', fontSize: 15}}>Hora: </Text> {title.schedule}
+                    </Text>                    
+                </Card>
+                            
+            </View>
+            );
+    //}
+}
 
 class Schedules extends Component {
+
+    state = {
+        user:[],
+    }
+
+    atualizaLista() {
+        api.get('/').then(res => {
+            console.log(res.data);
+            const user = res.data;
+            this.setState({ user });
+        })
+    }
+
     render() {
         return (
+            
             <ScrollView style={styles.father}>
-                
+                <View style={{display:'flex', alignItems: 'center',marginTop: 10, marginBottom: 10 }}>
+                    <Button title='Atualiza' onPress={this.atualizaLista()}/>
+                </View>
                 {/*
                 
                 <View elevation={10} style={styles.header}>
@@ -14,14 +50,15 @@ class Schedules extends Component {
                 </View>*/}
                 <Icon name="cut" color="#fbfefd" type="font-awesome" size={50}/>
                 
-                <Card
-                    title='dd/mm/aa'
-                    containerStyle={styles.card}
-                >
-                    <Text style={{marginBottom: 10}}>
-                        <Text style={{fontWeight: 'bold', fontSize: 15}}>Nome: </Text>                       
-                    </Text>
-                </Card>
+                <View>
+                    <FlatList
+                        data={this.state.user}
+                        renderItem={({ item }) => <Item title={item} />}
+                        keyExtractor={item => item.id}
+                    />
+                </View>
+
+                
                 </ScrollView>         
         )
     }

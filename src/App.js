@@ -30,7 +30,7 @@ const TabNavigator = createBottomTabNavigator(
       navigationOptions: {
         tabBarLabel:"Início",
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="home" type = "font-awesome" size={25} color="#636e72"/>
+          <Icon name="home" type = "font-awesome" size={25} color="#1F143D"/>
         )
       },
     },
@@ -40,7 +40,7 @@ const TabNavigator = createBottomTabNavigator(
       navigationOptions: {
         tabBarLabel:"Agenda",
         tabBarIcon: ({ tintColor }) => (
-          <Icon elevation={5} name="address-book" type = "font-awesome" size={20} color="#636e72" />
+          <Icon elevation={5} name="address-book" type = "font-awesome" size={20} color="#1F143D" />
         )
       },
     },
@@ -50,7 +50,7 @@ const TabNavigator = createBottomTabNavigator(
       navigationOptions:{
         tabBarLabel: "Clientes",
         tabBarIcon:({tintColor}) => (
-          <Icon name ="user" type ="font-awesome" size={20} color='#636e72'/>
+          <Icon name ="user" type ="font-awesome" size={20} color='#1F143D'/>
         )
       }
     },
